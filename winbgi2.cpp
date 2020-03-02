@@ -1939,7 +1939,7 @@ void initgraph(int* device, int* mode, char const* /*pathtodriver*/,
 	if (size_width) window_width=size_width;
 	if (size_height) window_height=size_height;
 
-    hWnd = CreateWindow("BGIlibrary", "Windows BGI", 
+    hWnd = CreateWindow(L"BGIlibrary", L"Windows BGI", 
 			WS_OVERLAPPEDWINDOW,
 		        0, 0, window_width+BORDER_WIDTH, 
 			window_height+BORDER_HEIGHT,
