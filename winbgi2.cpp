@@ -516,8 +516,8 @@ static short WidedotBrushBitmap[8] =
 static short ClosedotBrushBitmap[8] = 
   {~0x44, ~0x00, ~0x11, ~0x00, ~0x44, ~0x00, ~0x11, ~0x00};
 	
-char* grapherrormsg(int code) {	
-    static char buf[256];
+wchar_t* grapherrormsg(int code) {
+    static wchar_t buf[256];
     FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, 
     	          NULL, code, 0, 
     	          buf, sizeof buf, NULL);
