@@ -592,7 +592,7 @@ int getcolor()
     return color;
 }
 
-char* getdrivername()
+const char* getdrivername()
 {
     return "EGAVGA";
 }
