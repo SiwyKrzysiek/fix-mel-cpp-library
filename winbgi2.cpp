@@ -382,6 +382,11 @@ class font_cache : public l2list {
 		return;	    
 	    }
 	}
+
+	// Convert string to wide string
+	wchar_t selected_font_name[1024];
+	std::mbstowcs(selected_font_name, font_name[type], 1024);
+
 	hFont = CreateFont(-height,
 			   width,
 			   direction*900,
@@ -395,7 +400,7 @@ class font_cache : public l2list {
 			   CLIP_DEFAULT_PRECIS,
 			   DEFAULT_QUALITY,
 			   font_family[type], 
-			   font_name[type]);
+			   selected_font_name);
 	SelectObject(hdc[0], hFont);
 	SelectObject(hdc[1], hFont);
 	
