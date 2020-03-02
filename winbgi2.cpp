@@ -1850,7 +1850,7 @@ void initgraph(int* device, int* mode, char const* /*pathtodriver*/,
     gdi_error_code = grOk;
 
     if (wcApp.lpszClassName == NULL) { 
-	wcApp.lpszClassName = "BGIlibrary";
+	wcApp.lpszClassName = L"BGIlibrary";
 	wcApp.hInstance = 0;
 	wcApp.lpfnWndProc = WndProc;
 	wcApp.hCursor = LoadCursor(NULL, IDC_ARROW);
