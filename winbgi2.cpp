@@ -778,6 +778,10 @@ static void select_font()
 
 static void text_output(int x, int y, const char* str)
 { 
+	// Convert string to wide string
+	wchar_t wstr[1024];
+	std::mbstowcs(wstr, str, 1024);
+
     select_font();
     if (text_color != color) { 
 	text_color = color;
@@ -785,10 +789,10 @@ static void text_output(int x, int y, const char* str)
 	SetTextColor(hdc[1], PALETTEINDEX(text_color+BG));
     }
     if (bgiemu_handle_redraw || visual_page != active_page) { 
-        TextOut(hdc[1], x, y, str, strlen(str));
+        TextOut(hdc[1], x, y, wstr, strlen(str));
     }
     if (visual_page == active_page) { 
-        TextOut(hdc[0], x, y, str, strlen(str));
+        TextOut(hdc[0], x, y, wstr, strlen(str));
     } 
 }
 
