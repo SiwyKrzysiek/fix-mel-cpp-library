@@ -13,7 +13,7 @@
 #define MAX_PAGES 16
 
 // Ignore modern seciurty warnings
-#define _CRT_SECURE_NO_WARNINGS
+#pragma warning(disable : 4996)
 
 static HDC hdc[4];
 
