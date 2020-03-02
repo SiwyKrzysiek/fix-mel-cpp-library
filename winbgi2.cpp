@@ -7,6 +7,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <math.h>
+#include <cstdlib>
 #include "winbgi2.h"
 
 #define MAX_PAGES 16
@@ -820,7 +821,10 @@ int textheight(const char* str)
 {
     SIZE ss;
     select_font();
-    GetTextExtentPoint32(hdc[0], str, strlen(str), &ss);
+	// Convert string to wide string
+	wchar_t wstr[1024];
+	std::mbstowcs(wstr, str, 1024);
+    GetTextExtentPoint32(hdc[0], wstr, strlen(str), &ss);
     return ss.cy;
 }
 
@@ -828,7 +832,11 @@ int textwidth(const char* str)
 {
     SIZE ss;
     select_font();
-    GetTextExtentPoint32(hdc[0], str, strlen(str), &ss);
+
+	// Convert string to wide string
+	wchar_t wstr[1024];
+	std::mbstowcs(wstr, str, 1024);
+    GetTextExtentPoint32(hdc[0], wstr, strlen(str), &ss);
     return ss.cx;
 }
 
