@@ -11,6 +11,9 @@
 
 #define MAX_PAGES 16
 
+// Ignore modern seciurty warnings
+#define _CRT_SECURE_NO_WARNINGS
+
 static HDC hdc[4];
 
 static HPEN hPen;
